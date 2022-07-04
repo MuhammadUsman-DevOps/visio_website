@@ -1,0 +1,65 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block page_title %} Blog & Case Studies {% endblock page_title %}
+{% block header_class %}style-six {% endblock header_class %}
+{% block main_content %}
+
+{% if title == "Case Studies" %}
+    <!--Page Title-->
+    <section class="page-title style-two centred"
+             style="background-image: url({{ supporting_content.case_study_banner.url }});">
+        <div class="auto-container">
+            <div class="content-box clearfix">
+                <h1>{{ title }}</h1>
+            </div>
+        </div>
+    </section>
+    <!--End Page Title-->
+    {% else %}
+    <!--Page Title-->
+    <section class="page-title style-two centred"
+             style="background-image: url({{ supporting_content.blog_banner.url }});">
+        <div class="auto-container">
+            <div class="content-box clearfix">
+                <h1>{{ title }}</h1>
+            </div>
+        </div>
+    </section>
+    <!--End Page Title-->
+{% endif %}
+
+    <!-- news-section -->
+    <section class="news-section blog-grid sec-pad">
+        <div class="auto-container">
+            <div class="row clearfix">
+                {% for blog in blogs %}
+                    <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                        <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="00ms"
+                             data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <figure class="image-box"><a href="{% url 'post' blog.slug %}"><img
+                                        src="{{ blog.cover_picture.url }}" alt=""></a></figure>
+                                <div class="lower-content">
+                                    <ul class="post-info">
+                                        <li>{{ blog.date }}</li>
+                                    </ul>
+                                    <h3><a href="{% url 'post' blog.slug %}">{{ blog.post_title }}</a></h3>
+                                    <p>{{ blog.post_content|safe|truncatewords:10 }}</p>
+                                    <div class="link"><a href="{% url 'post' blog.slug %}"><i
+                                            class="fas fa-arrow-right"></i><span>Read More</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- news-section end -->
+
+
+
+
+
+{% endblock main_content %}

@@ -1,0 +1,559 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block page_title %} Home - Visio {% endblock page_title %}
+{% block header_class %}style-three {% endblock header_class %}
+{% block main_content %}
+    <!-- banner-section -->
+    <section class="banner-section style-three">
+        <div class="banner-carousel owl-theme owl-carousel owl-dots-none">
+            {% for slider in sliders %}
+                <div class="slide-item">
+                    <div class="image-layer" style="background-image:url({{ slider.image.url }})"></div>
+                    <div class="auto-container">
+                        <div class="content-box centred">
+                            <h1>{{ slider.title }}</h1>
+                            <p>{{ slider.short_description }}</p>
+                            <div class="btn-box">
+                                <a href="{% url 'contact_us' %}" class="theme-btn style-three">How Can We Help</a>
+                                <a href="{% url 'products' %}" class="banner-btn">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    <!-- banner-section end -->
+
+
+    <!-- intro-section -->
+    <section class="intro-section">
+        <div class="auto-container">
+            <div class="upper-content">
+                <div class="row clearfix">
+                    {% for intro in intro_section %}
+                        <div class="col-lg-4 col-md-6 col-sm-12 single-column">
+                            <div class="single-item">
+                                <div class="inner-box">
+                                    <div class="icon-box"><i class="{{ intro.icon }}"></i></div>
+                                    <h3><a href="#">{{ intro.heading }}</a></h3>
+                                    <p>{{ intro.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="lower-content centred">
+                <div class="sec-title style-three centred">
+                    <h5>{{ supporting_content.short_about_heading }}</h5>
+                    <h2>{{ supporting_content.about_heading }}</h2>
+                </div>
+                <div class="text">
+                    <p>{{ supporting_content.about_description }}</p>
+                </div>
+                <div>
+                    <img src="{% static 'images/SensorFlow.gif' %}">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- intro-section end -->
+
+
+    <!-- info-style-two -->
+    <section class="info-style-two bg-color-3">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-6 col-md-12 col-sm-12 video-column">
+                    <div id="video_block_two">
+                        <div class="video-content">
+                            <div class="pattern-layer"
+                                 style="background-image: url({% static 'images/shape/shape-10.png' %});"></div>
+                            <div class="video-inner"
+                                 style="background-image: url({{ supporting_content.feature_thumbnail.url }});">
+                                <div class="video-btn">
+                                    <a href="{% static 'images/video_2.mp4' %}"
+                                       class="lightbox-image" data-caption=""><i class="fas fa-play"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                    <div id="content_block_seven">
+                        <div class="content-box">
+                            <ul class="info-list clearfix">
+                                {% for feature in features %}
+                                    <li>
+                                        <i class="{{ feature.feature_icon }}"></i>
+                                        <h3>{{ feature.feature_heading }}</h3>
+                                        <p class="text-white">{{ feature.feature_description }}</p>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- info-style-two end -->
+
+
+    <!-- service-style-three -->
+    <section class="service-style-three">
+        <div class="auto-container">
+            <div class="upper-box">
+                <div class="title-inner clearfix">
+                    <div class="sec-title style-three left pull-left">
+                        <h5>Visio Services</h5>
+                        <h2>{{ supporting_content.service_section_heading }}</h2>
+                    </div>
+                    <div class="text pull-left">
+                        <p>{{ supporting_content.service_section_description }}</p>
+                    </div>
+                </div>
+                <div class="btn-box"><a href="{% url 'products' %}" class="theme-btn style-three">View All<i
+                        class="fas fa-arrow-right"></i></a></div>
+            </div>
+            <div class="three-item-carousel owl-carousel owl-theme owl-nav-none">
+                {% for service in services %}
+                    <div class="service-block-three">
+                        <div class="inner-box">
+                            <figure class="image-box">
+                                <div class="overlay-box-1"></div>
+                                <div class="overlay-box-2"></div>
+                                <img src="{{ service.service_picture.url }}" alt="">
+                                <a href="#"></a>
+                            </figure>
+                            <div class="lower-content">
+                                <h3><a href="#">{{ service.heading }}</a></h3>
+                                <p>{{ service.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- service-style-three end -->
+
+
+    <!-- funfact-style-two -->
+    <section class="funfact-style-two centred">
+        <div class="pattern-layer" style="background-image: url({% static 'images/shape/shape-11.png' %});"></div>
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-3 col-md-6 col-sm-12 counter-column">
+                    <div class="counter-block-two wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+                        <div class="count-outer count-box">
+                            <span class="count-text" data-speed="1500" data-stop="{{ statistics.customers }}"></span>
+                        </div>
+                        <h3>Global <br/>Customers</h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 counter-column">
+                    <div class="counter-block-two wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+                        <div class="count-outer count-box">
+                            <span class="count-text" data-speed="1500"
+                                  data-stop="{{ statistics.facilities_manages }}"></span>
+                        </div>
+                        <h3>Facilities <br/>Managed</h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 counter-column">
+                    <div class="counter-block-two wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+                        <div class="count-outer count-box">
+                            <span class="count-text" data-speed="1500" data-stop="{{ statistics.expert_team }}"></span>
+                        </div>
+                        <h3>Expert <br/>Teams</h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 counter-column">
+                    <div class="counter-block-two wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+                        <div class="count-outer count-box">
+                            <span class="count-text" data-speed="1500" data-stop="{{ statistics.area_covered }}"></span>
+                        </div>
+                        <h3>Area <br/>Covered</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- funfact-style-two end -->
+
+
+    <!-- chart-section -->
+    <section class="chart-section bg-color-3">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                    <div id="content_block_eight">
+                        <div class="content-box">
+                            <div class="sec-title style-three left light">
+                                <h2>{{ insight_section.heading }}</h2>
+                            </div>
+                            <div class="text text-white">
+                                <p class="text-white"> {{ insight_section.description|safe }}</p>
+                            </div>
+                            <div class="btn-box">
+                                <a href="{% url 'contact_us' %}">Take a Free Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 chart-column">
+                    <figure class="chart-box"><img src="{{ insight_section.picture.url }}" alt=""></figure>
+                    <div id="content_block_two">
+                        <div class="content-box">
+                            <div class="text">
+
+                            </div>
+                            <div class="inner-box clearfix">
+                                <div class="single-progress-box">
+                                    <div class="box">
+                                        <div class="piechart" data-fg-color="{{ insight_section.pie_chart_1_color }}"
+                                             data-value="{{ insight_section.pie_chart_1_value }}">
+                                            <span>{{ insight_section.pie_chart_1_value }}</span>
+                                        </div>
+                                        <h3>{{ insight_section.pie_chart_1_heading }} </h3>
+                                    </div>
+                                </div>
+                                <div class="single-progress-box">
+                                    <div class="box">
+                                        <div class="piechart" data-fg-color="{{ insight_section.pie_chart_2_color }}"
+                                             data-value="{{ insight_section.pie_chart_2_value }}">
+                                            <span>{{ insight_section.pie_chart_2_value }}</span>
+                                        </div>
+                                        <h3>{{ insight_section.pie_chart_2_heading }}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- chart-section end -->
+
+
+    <!-- project-style-two -->
+    <section class="project-style-two">
+        <div class="auto-container">
+            <div class="sec-title style-three centred">
+                <h5>Globaly trusted</h5>
+                <h2>Why Choose Us</h2>
+            </div>
+            <div class="project-carousel-2 owl-carousel owl-theme owl-nav-none">
+                {% for data in why_us %}
+                    <div class="project-inner">
+                        <div class="inner-box">
+                            <figure class="image-box"><img src="{{ data.picture.url }}" alt="">
+                            </figure>
+                            <div class="content-box">
+                                <h3>{{ data.heading }}</h3>
+                                <p>{{ data.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- project-style-two end -->
+
+
+    <!-- world-cyber -->
+    <section class="world-cyber bg-color-1">
+        <div class="pattern-layer" style="background-image: url({% static 'images/shape/shape-2.png' %});"></div>
+        <div class="auto-container">
+            <div class="sec-title centred">
+                <h5>Globaly renowned & trusted</h5>
+                <h2>Visio's Working Everywhere in UAE</h2>
+            </div>
+
+        </div>
+    </section>
+    <!-- world-cyber end -->
+
+
+    <!-- support-section -->
+    <section class="support-section">
+        <div class="auto-container">
+            <div class="inner-container">
+                <div class="row clearfix">
+                    <div class="col-lg-7 col-md-12 col-sm-12 inner-column">
+                        <div class="inner-box">
+                            <div class="sec-title light left">
+                                <h5>Estimate your savings for Free!</h5>
+                                <h2>Savings Calculator</h2>
+                            </div>
+                            <form action="#" method="post" class="submit-form">
+                                <div class="form-group">
+                                    <label for="choose_industry" class="text-white">Choose Your Industry *</label>
+                                    <select class="form-control" id="choose_industry">
+                                        <option>Choose Your Industry</option>
+                                        <option>Building and Facilities Management</option>
+                                        <option>Workplace</option>
+                                        <option>Cold Storage</option>
+                                        <option>Energy Transmission</option>
+                                        <option>Manufacturing and Warehousing</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="choose_application" class="text-white">Choose an Application *</label>
+                                    <select class="form-control" id="choose_application">
+                                        <option>Choose Your Application</option>
+                                        <option>Ambient Temperature</option>
+                                        <option>Smart Cleaning</option>
+                                        <option>Asset Management</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="budget" class="text-white">How much do you spend yearly (AED)*</label>
+                                    <input type="text" name="budget" id="budget" placeholder="Enter an amount"
+                                           required="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="full_name" class="text-white">Full Name *</label>
+                                    <input type="text" name="full_name" id="full_name" placeholder="Your Full Name"
+                                           required="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email_address" class="text-white">Email Address *</label>
+                                    <input type="email" name="email_address" id="email_address"
+                                           placeholder="Your Email Address" required="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone_number" class="text-white">Phone Number</label>
+                                    <input type="text" name="phone_number" id="phone_number"
+                                           placeholder="Your Phone Number" required="">
+                                </div>
+                                <div class="form-group message-btn">
+                                    <button type="submit" class="theme-btn style-one">Request Estimate</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-12 col-sm-12 info-column">
+                        <div class="info-inner">
+                            <figure class="image-box"><img src="{% static 'images/quote.jpg' %}" alt="">
+                            </figure>
+                            <div class="info-box">
+                                <figure class="info-logo"><img src="{% static 'images/visio.png' %}" alt="">
+                                </figure>
+                                <div class="icon-box"><i class="fas fa-phone"></i></div>
+                                <h2><a href="tel:18003698527">1-800-369-8527</a></h2>
+                                <div class="email"><a href="mailto:support@my-domain.net">support@my-domain.net</a>
+                                </div>
+                                <ul class="list-item clearfix">
+                                    <li>.&nbsp;<a href="#">Experienced</a>&nbsp;.</li>
+                                    <li><a href="#">Specialized</a>&nbsp;.</li>
+                                    <li><a href="#">Professional</a>&nbsp;.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- support-section end -->
+
+
+    <!-- testimonial-section -->
+    <section class="testimonial-section"
+             style="background-image: url({% static 'images/people.jpg' %});">
+        <div class="auto-container">
+            <div class="title-box">
+                <div class="row clearfix">
+                    <div class="col-lg-6 col-md-12 col-sm-12 title-column">
+                        <div class="sec-title right">
+                            <h5>testimonials</h5>
+                            <h2>{{ supporting_content.testimonial_section_heading }}</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 text-column">
+                        <div class="text">
+                            <p>{{ supporting_content.testimonial_section_description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-inner">
+                <div class="client-testimonial-carousel owl-carousel owl-theme owl-nav-none owl-dots-none">
+                    {% for testimonial in testimonials %}
+                        <div class="testimonial-block">
+                            <div class="text">
+                                <p>{{ testimonial.comment }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="client-thumb-outer">
+                    <div class="client-thumbs-carousel owl-carousel owl-theme owl-nav-none owl-dots-none">
+                        {% for testimonial in testimonials %}
+                            <div class="thumb-item">
+                                <figure class="thumb-box"><img src="{{ testimonial.picture.url }}"
+                                                               alt=""></figure>
+                                <div class="info-box">
+                                    <h5>{{ testimonial.name }}</h5>
+                                    <span class="designation">{{ testimonial.designation }}</span>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- testimonial-section end -->
+
+
+    <!-- news-section -->
+    <section class="news-section bg-color-1">
+        <div class="auto-container">
+            <div class="sec-title centred">
+                <h5>Read the articles</h5>
+                <h2>Latest Case Studies</h2>
+            </div>
+            <div class="row clearfix">
+                {% for blog in three_blogs %}
+                    <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                        <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="00ms"
+                             data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <figure class="image-box"><a href="{% url 'post' blog.slug %}"><img
+                                        src="{{ blog.cover_picture.url }}" alt=""></a></figure>
+                                <div class="lower-content">
+                                    <ul class="post-info">
+                                        <li>{{ blog.date }}</li>
+                                    </ul>
+                                    <h3><a href="{% url 'post' blog.slug %}">{{ blog.post_title }}</a></h3>
+                                    <p>{{ blog.post_content|safe|truncatewords:10 }}</p>
+                                    <div class="link"><a href="{% url 'post' blog.slug %}"><i
+                                            class="fas fa-arrow-right"></i><span>Read More</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- news-section end -->
+
+
+    <!-- clients-section -->
+    <section class="clients-section">
+        <div class="auto-container">
+            <div class="clients-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
+                {% for client in clients %}
+                    <figure class="client-logo"><a href="#"><img src="{{ client.logo.url }}"
+                                                                          alt=""></a></figure>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- clients-section end -->
+
+
+
+
+    {#    <!-- news-style-three -->#}
+    {#    <section class="news-style-three">#}
+    {#        <div class="pattern-layer" style="background-image: url({% static 'images/shape/shape-12.png' %});"></div>#}
+    {#        <div class="auto-container">#}
+    {#            <div class="upper-box">#}
+    {#                <div class="title-inner clearfix">#}
+    {#                    <div class="sec-title style-three left pull-left">#}
+    {#                        <h5>read latest articles</h5>#}
+    {#                        <h2>What’s Happening</h2>#}
+    {#                    </div>#}
+    {#                    <div class="text pull-left">#}
+    {#                        <p>Tempor incididunt ut labore et dolore magna aliquat enim veniam quis nostrud exercitation#}
+    {#                            ullamco laboris nis aliquip consequat duis aute irure dolor voluptate.</p>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <div class="btn-box"><a href="blog-grid.html" class="theme-btn style-three">Our Blog<i#}
+    {#                        class="fas fa-arrow-right"></i></a></div>#}
+    {#            </div>#}
+    {#            <div class="row clearfix">#}
+    {#                <div class="col-lg-6 col-md-6 col-sm-12 big-column">#}
+    {#                    <div class="left-block">#}
+    {#                        <div class="news-block-two wow fadeInUp animated animated" data-wow-delay="00ms">#}
+    {#                            <div class="inner-box">#}
+    {#                                <figure class="image-box"><img src="{% static 'images/news/news-4.jpg' %}" alt="">#}
+    {#                                </figure>#}
+    {#                                <div class="lower-content">#}
+    {#                                    <ul class="post-info">#}
+    {#                                        <li>By <a href="index.html">Fionca</a></li>#}
+    {#                                        <li>January 31, 2020</li>#}
+    {#                                    </ul>#}
+    {#                                    <h3><a href="blog-details.html">Take Action for the Best Strategy Benefits</a></h3>#}
+    {#                                    <div class="link"><a href="blog-details.html"><i#}
+    {#                                            class="fas fa-arrow-right"></i><span>Read More</span></a></div>#}
+    {#                                </div>#}
+    {#                            </div>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <div class="col-lg-6 col-md-6 col-sm-12 big-column">#}
+    {#                    <div class="right-block">#}
+    {#                        <div class="row clearfix">#}
+    {#                            <div class="col-lg-6 col-md-6 col-sm-12 news-block">#}
+    {#                                <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="300ms"#}
+    {#                                     data-wow-duration="1500ms">#}
+    {#                                    <div class="inner-box">#}
+    {#                                        <figure class="image-box"><a href="blog-details.html"><img#}
+    {#                                                src="{% static 'images/news/news-5.jpg' %}" alt=""></a></figure>#}
+    {#                                        <div class="lower-content">#}
+    {#                                            <ul class="post-info">#}
+    {#                                                <li>By <a href="index.html">Fionca</a></li>#}
+    {#                                                <li>January 31, 2020</li>#}
+    {#                                            </ul>#}
+    {#                                            <h3><a href="blog-details.html">Enterprise is Becoming Digital#}
+    {#                                                Innovation</a></h3>#}
+    {#                                            <p>Acepteur sintas haecat sed non dui proident sunt culpa ipsum ...</p>#}
+    {#                                            <div class="link"><a href="blog-details.html"><i#}
+    {#                                                    class="fas fa-arrow-right"></i><span>Read More</span></a></div>#}
+    {#                                        </div>#}
+    {#                                    </div>#}
+    {#                                </div>#}
+    {#                            </div>#}
+    {#                            <div class="col-lg-6 col-md-6 col-sm-12 news-block">#}
+    {#                                <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="600ms"#}
+    {#                                     data-wow-duration="1500ms">#}
+    {#                                    <div class="inner-box">#}
+    {#                                        <figure class="image-box"><a href="blog-details.html"><img#}
+    {#                                                src="{% static 'images/news/news-6.jpg' %}" alt=""></a></figure>#}
+    {#                                        <div class="lower-content">#}
+    {#                                            <ul class="post-info">#}
+    {#                                                <li>By <a href="index.html">Fionca</a></li>#}
+    {#                                                <li>January 30, 2020</li>#}
+    {#                                            </ul>#}
+    {#                                            <h3><a href="blog-details.html">Finance Market Expand: Why it’s#}
+    {#                                                Important?</a></h3>#}
+    {#                                            <p>Acepteur sintas haecat sed non dui proident sunt culpa ipsum ...</p>#}
+    {#                                            <div class="link"><a href="blog-details.html"><i#}
+    {#                                                    class="fas fa-arrow-right"></i><span>Read More</span></a></div>#}
+    {#                                        </div>#}
+    {#                                    </div>#}
+    {#                                </div>#}
+    {#                            </div>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </section>#}
+    {#    <!-- news-style-three end -->#}
+
+{% endblock main_content %}

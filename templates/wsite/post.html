@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block page_title %} Post {% endblock page_title %}
+{% block header_class %}style-six {% endblock header_class %}
+{% block main_content %}
+
+    <!--Page Title-->
+    <section class="page-title style-three centred" style="background-image: url({{ blog_post.cover_picture.url }});">
+        <div class="auto-container">
+            <div class="content-box clearfix">
+                <h1>{{ blog_post.post_title }}</h1>
+            </div>
+        </div>
+    </section>
+    <!--End Page Title-->
+
+
+    <!-- sidebar-page-container -->
+    <section class="sidebar-page-container">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-9 col-md-12 col-sm-12 content-side">
+                    <div class="blog-details-content">
+                        <figure class="image-box">
+                            <span class="category">{{ blog_post.tag }}</span>
+                        </figure>
+                        <div class="inner-box">
+                            <ul class="post-info clearfix">
+
+                                <li><i class="far fa-calendar-alt"></i>{{ blog_post.date }}</li>
+
+                            </ul>
+                            <div class="text">
+                                <h2>{{ blog_post.post_title }}</h2>
+                                <div>{{ blog_post.post_content|safe }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- sidebar-page-container end -->
+
+
+
+{% endblock main_content %}

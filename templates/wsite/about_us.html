@@ -1,0 +1,204 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block page_title %} About Us {% endblock page_title %}
+{% block header_class %}style-six {% endblock header_class %}
+{% block main_content %}
+    <!--Page Title-->
+    <section class="page-title centred" style="background-image: url({{ about_us_info.banner.url }});">
+        <div class="auto-container">
+            <div class="content-box clearfix mt-20">
+                <h1>About Us</h1>
+            </div>
+        </div>
+    </section>
+    <!--End Page Title-->
+
+    <!-- about-style-two -->
+    <section class="about-style-two about-page-1 bg-color-1">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-7 col-md-12 col-sm-12 content-column">
+                    <div id="content_block_three">
+                        <div class="content-box">
+                            <div class="sec-title right">
+                                <h5>About Visio</h5>
+                                <h2>{{ about_us_info.heading }}</h2>
+                            </div>
+                            <div class="text">
+                                <p>{{ about_us_info.description|safe }}</p>
+                            </div>
+                            <div class="tabs-box">
+                                <div class="tab-btn-box">
+                                    <ul class="tab-btns tab-buttons clearfix">
+                                        <li class="tab-btn active-btn" data-tab="#tab-1">Our Mission</li>
+                                        <li class="tab-btn" data-tab="#tab-2">Our Experience</li>
+                                        <li class="tab-btn" data-tab="#tab-3">Our Vision</li>
+                                    </ul>
+                                </div>
+                                <div class="tabs-content">
+                                    <div class="tab active-tab" id="tab-1">
+                                        <div class="content-inner">
+                                            <p>{{ about_us_info.mission|safe }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="tab" id="tab-2">
+                                        <div class="content-inner">
+                                            <p>{{ about_us_info.experience|safe }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="tab" id="tab-3">
+                                        <div class="content-inner">
+                                            <p>{{ about_us_info.vision|safe }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12 image-column">
+                    <div id="image_block_two">
+                        <div class="image-box">
+                            <div class="pattern-layer"
+                                 style="background-image: url({% static 'images/shape/shape-25.png' %});"></div>
+                            <figure class="image"><img src="{{ about_us_info.side_picture.url }}" alt="">
+                            </figure>
+                            <div class="content-box">
+                                <i class="fas fa-headphones-alt"></i>
+                                <h4>Save Money!</h4>
+                                <h5>Any questions? Call <a href="tel:{{ contact_us_info.phone_number }}">{{ contact_us_info.phone_number }}</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-style-two end -->
+
+
+    <!-- world-cyber -->
+    <section class="world-cyber about-page-1">
+        <div class="pattern-layer" style="background-image: url({% static 'images/shape/shape-2.png' %});"></div>
+        <div class="auto-container">
+            <div class="sec-title centred">
+                <h5>Globaly renowned & trusted</h5>
+                <h2>Visio's Working Everywhere</h2>
+            </div>
+        </div>
+    </section>
+    <!-- world-cyber end -->
+
+
+    <!-- funfact-style-four -->
+    <section class="funfact-style-four about-page-1 centred">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-3 col-md-6 col-sm-12 counter-column">
+                    <div class="counter-block-two wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+                        <div class="count-outer count-box">
+                            <span class="count-text" data-speed="1500" data-stop="{{ statistics.customers }}"></span>
+                        </div>
+                        <h3>Global <br/>Customers</h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 counter-column">
+                    <div class="counter-block-two wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+                        <div class="count-outer count-box">
+                            <span class="count-text" data-speed="1500" data-stop="{{ statistics.facilities_manages }}"></span>
+                        </div>
+                        <h3>Facilities <br/>Managed</h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 counter-column">
+                    <div class="counter-block-two wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+                        <div class="count-outer count-box">
+                            <span class="count-text" data-speed="1500" data-stop="{{ statistics.expert_team }}"></span>
+                        </div>
+                        <h3>Expert <br/>Teams</h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 counter-column">
+                    <div class="counter-block-two wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+                        <div class="count-outer count-box">
+                            <span class="count-text" data-speed="1500" data-stop="{{ statistics.area_covered }}"></span>
+                        </div>
+                        <h3>Area <br/>Covered</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- funfact-style-four -->
+
+
+    <!-- video-section -->
+    <section class="video-section about-page-1 centred"
+             style="background-image: url({{ about_us_info.banner_section_2.url }});">
+        <div class="auto-container">
+            <div class="inner-box">
+                <h2>{{ about_us_info.heading_section_2 }}</h2>
+            </div>
+        </div>
+    </section>
+    <!-- video-section end -->
+
+
+    <!-- team-section -->
+    <section class="team-section about-page-1">
+        <div class="auto-container">
+            <div class="title-box">
+                <div class="row clearfix">
+                    <div class="col-lg-6 col-md-6 col-sm-12 title-column">
+                        <div class="sec-title right">
+                            <h5>Professionals team</h5>
+                            <h2>Our Expert Team</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 text-column">
+                        <div class="text">
+                            <p>We have got an experienced team back office.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="four-item-carousel owl-carousel owl-theme owl-nav-none owl-dot-style-one">
+                {% for team in teams %}
+                <div class="team-block-one">
+                    <div class="inner-box">
+                        <figure class="image-box"><img src="{{ team.picture.url }}" alt=""></figure>
+                        <div class="lower-content">
+                            <div class="content-box">
+                                <h3><a href="#">{{ team.name }}</a></h3>
+                                <span class="designation">{{ team.designation }}</span>
+                            </div>
+                            <div class="ovellay-box">
+                                <h3><a href="#">{{ team.name }}</a></h3>
+                                <span class="designation">{{ team.designation }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- team-section end -->
+
+
+    <!-- clients-section -->
+    <section class="clients-section">
+        <div class="auto-container">
+            <div class="clients-carousel owl-carousel owl-theme owl-dots-none owl-nav-none">
+                {% for client in clients %}
+                    <figure class="client-logo"><a href="#"><img src="{{ client.logo.url }}"
+                                                                          alt=""></a></figure>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- clients-section end -->
+
+
+{% endblock main_content %}

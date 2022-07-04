@@ -1,0 +1,98 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block page_title %} Applications - Visio {% endblock page_title %}
+{% block header_class %}style-six {% endblock header_class %}
+{% block main_content %}
+
+    <!-- chart-section -->
+    <section class="chart-section bg-color-2">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                    <div id="content_block_eight">
+                        <div class="content-box">
+                            <div class="sec-title style-three left light">
+                                <h2>{{ app.heading_section_1 }}</h2>
+                            </div>
+                            <div class="text">
+                                <p class="text-white">{{ app.description_section_1|safe }}</p>
+                            </div>
+                            <div class="btn-box">
+                                <a href="{% url 'contact_us' %}">Take a Free Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 chart-column">
+                    <figure class="chart-box"><img src="{{ app.picture_section_1.url }}" alt=""></figure>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- chart-section end -->
+
+
+   <!-- intro-section -->
+    <section class="intro-section">
+        <div class="auto-container">
+            <div class="upper-content">
+                <div class="row clearfix">
+                    {% for intro in intro_section %}
+                        <div class="col-lg-4 col-md-6 col-sm-12 single-column">
+                            <div class="single-item">
+                                <div class="inner-box">
+                                    <div class="icon-box"><i class="{{ intro.icon }}"></i></div>
+                                    <h3><a href="#">{{ intro.heading }}</a></h3>
+                                    <p>{{ intro.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="lower-content centred">
+                <div class="sec-title style-three centred">
+                    <h5>{{ supporting_content.short_about_heading }}</h5>
+                    <h2>{{ supporting_content.about_heading }}</h2>
+                </div>
+                <div class="text">
+                    <p>{{ supporting_content.about_description }}</p>
+                </div>
+                <div>
+                    <img src="{% static 'images/SensorFlow.gif' %}">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- intro-section end -->
+
+     <!-- chart-section -->
+    <section class="chart-section bg-light">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-6 col-md-12 col-sm-12 chart-column">
+                    <figure class="chart-box"><img src="{{ app.picture_section_2.url }}" alt=""></figure>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                    <div id="content_block_eight">
+                        <div class="content-box">
+                            <div class="sec-title style-three left light">
+                                <span class="" style="color: black; font-size: 40px; font-weight: bolder">{{ app.heading_section_2 }}</span>
+                            </div>
+                            <div class="text">
+                                <p class="">{{ app.description_section_2|safe }}</p>
+                            </div>
+                            <div class="btn-box">
+                                <a href="{% url 'contact_us' %}" style="background-color: black">Take a Free Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- chart-section end -->
+
+
+{% endblock main_content %}

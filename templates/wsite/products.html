@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block page_title %} Products {% endblock page_title %}
+{% block header_class %}style-six {% endblock header_class %}
+{% block main_content %}
+
+    <!--Page Title-->
+    <section class="page-title centred"
+             style="background-image: url({{ supporting_content.products_banner.url }});">
+        <div class="auto-container">
+            <div class="content-box clearfix">
+                <h1>Products</h1>
+            </div>
+        </div>
+    </section>
+    <!--End Page Title-->
+
+<!-- contact-information -->
+    <section class="contact-information centred">
+        <div class="auto-container">
+            <div class="row clearfix mb-5">
+                {% for product in all_products %}
+                <div class="col-lg-4 col-md-6 col-sm-12 single-column">
+                    <div class="single-item wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+                        <div class="inner-box">
+                            <div class="icon-box">
+                                <img src="{{ product.product_picture.url }}" width="250px" height="250px">
+                            </div>
+                            <h3>{{ product.product_name }}</h3>
+                            <p>{{ product.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- contact-information end -->
+{% endblock main_content %}
